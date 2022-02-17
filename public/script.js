@@ -67,7 +67,7 @@ if ('geolocation' in navigator) {
                 document.getElementById('aq_date').textContent = air.lastUpdated;
 
             } catch (error) {
-                console.log(error);
+                console.error(error);
                 air = { value: -1 }
                 document.getElementById('aq_value').textContent = 'NO READING';
             }
