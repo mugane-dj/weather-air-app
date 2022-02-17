@@ -52,7 +52,7 @@ if ('geolocation' in navigator) {
             const AQ_response = await fetch(AQ_url);
             const AQ_Data = await AQ_response.json();
 
-            air = AQ_Data.results[0].measurements[0];
+            const air = AQ_Data.results[0].measurements[0];
 
 
             const api_data = {
