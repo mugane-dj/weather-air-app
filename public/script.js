@@ -45,11 +45,14 @@ if ('geolocation' in navigator) {
             const weather_response = await fetch(weather_url);
             const weather_data = await weather_response.json();
 
+            document.getElementById('summary').textContent = weather_data.weather[0].description;
+            document.getElementById('temperature').textContent = weather_data.main.temp.toFixed(2);
+
             const AQ_url = `air/${lat},${lon}`;
             const AQ_response = await fetch(AQ_url);
             const AQ_Data = await AQ_response.json();
 
-            const air = AQ_Data.results[0].measurements[0];
+            air = AQ_Data.results[0].measurements[0];
 
 
             const api_data = {
@@ -58,9 +61,8 @@ if ('geolocation' in navigator) {
             }
             console.log(api_data);
 
+
             try {
-                document.getElementById('summary').textContent = weather_data.weather[0].description;
-                document.getElementById('temperature').textContent = weather_data.main.temp.toFixed(2);
                 document.getElementById('aq_parameter').textContent = air.parameter;
                 document.getElementById('aq_value').textContent = air.value;
                 document.getElementById('aq_unit').textContent = air.unit;
