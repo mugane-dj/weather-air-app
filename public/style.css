@@ -1,0 +1,15 @@
+.selector-for-some-widget {
+    box-sizing: content-box;
+  }
+  
+p {
+    background-color: aquamarine;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+h1 {
+    padding: 5px;
+    background-color: bisque;
+    border-radius: 5px;
+}
