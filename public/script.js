@@ -1,6 +1,22 @@
 // Get coordinates based on address input and rendering to webpage
 if ('geolocation' in navigator) {
     console.log('geolocation available');
+
+    // configuring map
+
+    const map = L.map("isMap").setView([51.505, -0.09], 1);
+
+    const marker = L.marker([0, 0]).addTo(map);
+
+    const attribution =
+        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
+
+    const tileUrl = "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
+
+    const tiles = L.tileLayer(tileUrl, { attribution });
+
+    tiles.addTo(map);
+
     navigator.geolocation.getCurrentPosition(async () => {
         const button = document.getElementById('location');
         button.addEventListener('click', async () => {
@@ -21,21 +37,7 @@ if ('geolocation' in navigator) {
             document.getElementById('latitude').textContent = lat;
             document.getElementById('longitude').textContent = lon;
 
-
-            // configuring map
-
-            const map = L.map("isMap").setView([51.505, -0.09], 1);
-
-            const marker = L.marker([0, 0]).addTo(map);
-
-            const attribution =
-                '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
-
-            const tileUrl = "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
-
-            const tiles = L.tileLayer(tileUrl, { attribution });
-
-            tiles.addTo(map);
+            // setting view and marker on map
 
             marker.setLatLng([lat, lon]);
             map.setView([lat, lon], 2);
