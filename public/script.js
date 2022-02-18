@@ -4,7 +4,7 @@ if ('geolocation' in navigator) {
 
     // configuring map
 
-    const map = L.map("isMap").setView([51.505, -0.09], 2);
+    const map = L.map("isMap").setView([51.505, -0.09], 3);
 
     const marker = L.marker([0, 0]).addTo(map);
 
