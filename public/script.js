@@ -4,7 +4,7 @@ if ('geolocation' in navigator) {
 
     // configuring map
 
-    const map = L.map("isMap").setView([51.505, -0.09], 1);
+    const map = L.map("isMap").setView([51.505, -0.09], 3);
 
     const marker = L.marker([0, 0]).addTo(map);
 
@@ -40,7 +40,7 @@ if ('geolocation' in navigator) {
             // setting view and marker on map
 
             marker.setLatLng([lat, lon]);
-            map.setView([lat, lon], 2);
+            map.setView([lat, lon], 5);
 
             // fetching data from open weather map API and OpenAQ API
             const weather_url = `weather/${lat},${lon}`;
