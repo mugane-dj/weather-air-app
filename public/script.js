@@ -6,7 +6,11 @@ if ('geolocation' in navigator) {
 
     const map = L.map("isMap").setView([51.505, -0.09], 3);
 
-    const marker = L.marker([0, 0]).addTo(map);
+    var center = [0, 0];
+    var radiusInKm = 10;
+    var angleInDegrees = 90;
+    
+    const marker = L.circle(center, radiusInKm * 1000, angleInDegrees).addTo(map);
 
     const attribution =
         '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
@@ -40,7 +44,7 @@ if ('geolocation' in navigator) {
             // setting view and marker on map
 
             marker.setLatLng([lat, lon]);
-            map.setView([lat, lon], 5);
+            map.setView([lat, lon], 10);
 
             // fetching data from open weather map API and OpenAQ API
             const weather_url = `weather/${lat},${lon}`;
