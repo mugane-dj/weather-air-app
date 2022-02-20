@@ -9,7 +9,7 @@ if ('geolocation' in navigator) {
     var center = [0, 0];
     var radiusInKm = 10;
     var angleInDegrees = 90;
-    
+
     const marker = L.circle(center, radiusInKm * 1000, angleInDegrees).addTo(map);
 
     const attribution =
@@ -33,7 +33,6 @@ if ('geolocation' in navigator) {
             const loc_data = await loc_response.json();
 
             const coords = loc_data.features[0].geometry.coordinates
-
             const lon = coords[0];
             const lat = coords[1];
 
@@ -46,29 +45,24 @@ if ('geolocation' in navigator) {
             marker.setLatLng([lat, lon]);
             map.setView([lat, lon], 10);
 
-            // fetching data from open weather map API and OpenAQ API
+            // fetching data from open weather map API 
             const weather_url = `weather/${lat},${lon}`;
             const weather_response = await fetch(weather_url);
             const weather_data = await weather_response.json();
 
+
             document.getElementById('summary').textContent = weather_data.weather[0].description;
-            document.getElementById('temperature').textContent = weather_data.main.temp.toFixed(2);
+            document.getElementById('temperature').textContent = weather_data.main.temp;
 
-            const AQ_url = `air/${lat},${lon}`;
-            const AQ_response = await fetch(AQ_url);
-            const AQ_Data = await AQ_response.json();
-
-            const air = AQ_Data.results[0].measurements[0];
-
-
-            const api_data = {
-                weather: weather_data,
-                air_quality: AQ_Data
-            }
-            console.log(api_data);
-
-
+            //fetches air quality data from OpenAQ API
+            let air;
             try {
+                const AQ_url = `air/${lat},${lon}`;
+                const AQ_response = await fetch(AQ_url);
+                const AQ_Data = await AQ_response.json();
+
+                air = AQ_Data.results[0].measurements[0];
+
                 document.getElementById('aq_parameter').textContent = air.parameter;
                 document.getElementById('aq_value').textContent = air.value;
                 document.getElementById('aq_unit').textContent = air.unit;
@@ -100,5 +94,4 @@ if ('geolocation' in navigator) {
 } else {
     alert('Geolocation is not available');
 }
-
 
