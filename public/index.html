@@ -23,6 +23,7 @@
   <style>
     #isMap {
       height: 400px;
+      border-radius: 10px;
     }
   </style>
 
@@ -35,7 +36,7 @@
 
 <body>
   <div class="container-fluid mt-2">
-    <h1>Weather App</h1>
+    <h1>Weather and Air Quality App</h1>
 
     <div class="form-group">
       <input id="loc" type="text" class="form-control input-sm mt-2" placeholder="Enter location i.e Nairobi, Kenya">
@@ -48,16 +49,16 @@
       <span id="longitude"></span>&deg;
     </p>
     <p>
-      The weather here is <span id="summary"></span> with a temperature of <span id="temperature"></span> degrees
+      The weather in <span id="place"></span> is <span id="summary"></span> with a temperature of <span id="temperature"></span> degrees
       celcius. The concentration of
-      particulate matter (<span id="aq_parameter"></span>) is
+      particulate matter [<span id="aq_parameter"></span>] is
       <span id="aq_value"></span> <span id="aq_unit"></span> last read on
       <span id="aq_date"></span>.
     </p>
     <div id="isMap"></div>
 
-    <div style="margin-top: 20px;">
-      <a href="/logs" class="alert alert-primary">View
+    <div id="btn">
+      <a href="/logs" class="btn btn-primary">View
         Checkins</a>
     </div>
   </div>

@@ -26,6 +26,8 @@ if ('geolocation' in navigator) {
         button.addEventListener('click', async () => {
             const location = document.getElementById('loc').value;
 
+            document.getElementById('place').textContent = location;
+
             const url = `coordinates/${location}`;
 
             const loc_response = await fetch(url);

@@ -1,15 +1,41 @@
+@import url('https://fonts.googleapis.com/css?family=Space+Mono&display=swap');
+
 .selector-for-some-widget {
     box-sizing: content-box;
   }
+
   
 p {
-    background-color: aquamarine;
-    padding: 10px;
     border-radius: 5px;
+    padding-top: 5px;
+    font-family: 'space mono', monospace;
 }
 
 h1 {
     padding: 5px;
-    background-color: bisque;
+    text-align: center;
+    font-family: 'space mono', monospace;
     border-radius: 5px;
+}
+
+#location {
+    padding: 5px;
+    text-align: center;
+    font-family: 'space mono', monospace;
+    border-radius: 5px;
+}
+
+#loc {
+    padding: 5px;
+    text-align: center;
+    font-family: 'space mono', monospace;
+    border-radius: 5px;
+}
+
+#btn {
+    padding: 5px;
+    text-align: left;
+    font-family: 'space mono', monospace;
+    border-radius: 5px;
+    margin-top: 5px;
 }
